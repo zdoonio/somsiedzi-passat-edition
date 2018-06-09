@@ -83,4 +83,14 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
+[node name="PlayerArea" type="Area2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( 2.24918, -59.8824 )
+transform/scale = Vector2( 1.4543, 3.15098 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
 
