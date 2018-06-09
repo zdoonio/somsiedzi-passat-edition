@@ -12,6 +12,8 @@ func _process(delta):
 	var area = get_node("PlayerArea")
 	var timer = get_node("Timer")
 	var actualColiders = get_move_and_slide_colliders()
+	var bombSound = get_node("BombSound")
+	var soundRandomize = randi()% 3 + 1
 	
 	motion.y += GRAVITY * delta
 	
@@ -43,6 +45,13 @@ func _process(delta):
 				 
 			elif Input.is_action_pressed("up") and colider.get_name() == "Passat":
 				print("Zaplantowano bombe")
+				if soundRandomize == 1:
+					bombSound.play("Bomb0")
+				elif soundRandomize == 2:
+					bombSound.play("Bomb1")
+				elif soundRandomize == 3:
+					bombSound.play("Bomb2")
+					
 				colider.get_node("Bomb").play("Planted")
 				isPlanted = true
 				
@@ -53,7 +62,16 @@ func _process(delta):
 	motion = move_and_slide(motion)
 
 func _ready():
+	var soundRandomize = randi()% 3 + 1
 	set_process(true)
+	
+	if soundRandomize == 1:
+		get_node("IdleSound").play("Idle1")
+	elif soundRandomize == 2:
+		get_node("IdleSound").play("Idle2")
+	elif soundRandomize == 3:
+		get_node("IdleSound").play("Idle3")
+	
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
