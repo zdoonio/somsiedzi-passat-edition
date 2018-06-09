@@ -1,12 +1,10 @@
 extends AnimatedSprite
 
-
 func _process(delta):
 	if Input.is_action_pressed("up"):
-		print("up")
 		play("Open")
 	else:
-		play("Idle")	
+		play("Idle")
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"

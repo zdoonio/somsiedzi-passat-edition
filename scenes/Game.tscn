@@ -1,112 +1,42 @@
-[gd_scene load_steps=7 format=1]
+[gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://scenes/Tile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/world/obrazek.png" type="Texture" id=3]
-[ext_resource path="res://assets/world/passat.png" type="Texture" id=4]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Hall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Garage.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node"]
 
-[node name="Ground" type="Node2D" parent="."]
-
-transform/pos = Vector2( 34.2479, 571.94 )
-
-[node name="Tile1" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 365.146, -61.77 )
-transform/scale = Vector2( 1, 0.949976 )
-
-[node name="Tile" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 101.455, -66.3369 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile2" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 99.9479, -247.218 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile5" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 99.9479, -428.022 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile6" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 1063.31, -241.712 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile7" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 1063.31, -414.39 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile3" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 627.683, -61.3558 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile4" parent="Ground" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 893.515, -65.8999 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Floor1" type="Node2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 42.6573, 25.324 )
-
-[node name="Tile1" parent="Floor1" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 365.146, -66.3141 )
-transform/scale = Vector2( 1, 0.949976 )
-
-[node name="Tile" parent="Floor1" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 101.455, -66.3369 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile2" parent="Floor1" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 99.9479, -247.218 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile3" parent="Floor1" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 629.955, -65.8999 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Tile4" parent="Floor1" instance=ExtResource( 1 )]
-
-transform/pos = Vector2( 893.515, -65.8999 )
-transform/scale = Vector2( 1, 0.949263 )
-
-[node name="Door" parent="." instance=ExtResource( 2 )]
+[node name="Door" parent="." instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 846.735, 245.429 )
 transform/scale = Vector2( 0.852028, 0.73809 )
 
-[node name="Obraz" type="Sprite" parent="."]
+[node name="Floor" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 613.686, 215.549 )
-transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+transform/pos = Vector2( 373.794, 443.532 )
 
-[node name="Obraz1" type="Sprite" parent="."]
+[node name="Wall" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1678.93, 132.235 )
-transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+transform/pos = Vector2( 335.056, 296.673 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Hall" parent="." instance=ExtResource( 4 )]
 
-transform/pos = Vector2( 370.348, 231.752 )
+transform/pos = Vector2( 362.951, -79.9107 )
+
+[node name="Garage" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1747.78, -734.688 )
 
 [node name="Somsiad" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 864.584, 231.92 )
-transform/scale = Vector2( 0.289767, 0.241475 )
+transform/pos = Vector2( 546.144, 177.806 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 927.391, 161.167 )
 
 

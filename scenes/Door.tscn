@@ -4,30 +4,30 @@
 [ext_resource path="res://assets/world/door-open.png" type="Texture" id=2]
 [ext_resource path="res://scripts/DoorAnimationController.gd" type="Script" id=3]
 
-[sub_resource type="SegmentShape2D" id=2]
+[sub_resource type="SegmentShape2D" id=3]
 
 custom_solver_bias = 0.0
 a = Vector2( 0, 0 )
 b = Vector2( 0, 10 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ) ],
-"loop": true,
-"name": "Open",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Open",
 "speed": 5.0
 } ]
 
 [node name="DoorColider" type="StaticBody2D"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 9.74448, 0, 0, 6.13627, -0.206043, 216.859 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -39,7 +39,7 @@ bounce = 0.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Open"
 script/script = ExtResource( 3 )
 
@@ -47,7 +47,7 @@ script/script = ExtResource( 3 )
 
 transform/pos = Vector2( -0.206043, 216.859 )
 transform/scale = Vector2( 9.74448, 6.13627 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 

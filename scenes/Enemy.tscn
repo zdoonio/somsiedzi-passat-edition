@@ -29,6 +29,8 @@ animations = [ {
 
 [node name="Somsiad" type="Node2D"]
 
+transform/scale = Vector2( 0.25, 0.25 )
+
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
 input/pickable = false
