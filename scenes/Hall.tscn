@@ -31,13 +31,13 @@ transform/pos = Vector2( 499.82, -408 )
 [node name="Wall" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -37.0124, -119.837 )
-transform/scale = Vector2( 1, 0.789263 )
+transform/scale = Vector2( 1, 0.8 )
 z/z = 1
 
 [node name="Wall1" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 1038, -116.999 )
-transform/scale = Vector2( 1, 0.875034 )
+transform/scale = Vector2( 1, 0.8 )
 z/z = 1
 
 [node name="Wall2" parent="." instance=ExtResource( 4 )]
@@ -49,6 +49,11 @@ z/z = 1
 [node name="Door" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 837.575, -171.561 )
+transform/scale = Vector2( 0.75, 0.6 )
+
+[node name="Door1" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 152.846, -171.561 )
 transform/scale = Vector2( 0.75, 0.6 )
 
 

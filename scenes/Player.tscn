@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=1]
+[gd_scene load_steps=25 format=1]
 
 [ext_resource path="res://scripts/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/idle.png" type="Texture" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://audio/Idle1.wav" type="Sample" id=14]
 [ext_resource path="res://audio/Idle2.wav" type="Sample" id=15]
 [ext_resource path="res://audio/Idle3.wav" type="Sample" id=16]
+[ext_resource path="res://audio/Dead1.wav" type="Sample" id=17]
+[ext_resource path="res://audio/Dead2.wav" type="Sample" id=18]
+[ext_resource path="res://audio/Dead3.wav" type="Sample" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -81,6 +84,27 @@ samples/Idle3 = {
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 16 )
+}
+
+[sub_resource type="SampleLibrary" id=5]
+
+samples/Dead1 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 17 )
+}
+samples/Dead2 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 18 )
+}
+samples/Dead3 = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 19 )
 }
 
 [node name="Player" type="Node2D"]
@@ -168,6 +192,17 @@ params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 4 )
+config/pitch_random = 0.0
+
+[node name="DieSound" type="SamplePlayer2D" parent="Player"]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = SubResource( 5 )
 config/pitch_random = 0.0
 
 

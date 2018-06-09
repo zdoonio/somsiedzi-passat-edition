@@ -8,6 +8,9 @@ var speed = 12500
 var previousPosition = Vector2()
 var motion = Vector2()
 var directionFlag = true
+var allowedWalls = ["Wall", "Wall1", "Wall2", "Door", "Door1", "Door2", "ExitDoor", "ExitDoor1"]
+var allowedDoorsUp = ["Door", "Door1", "Door2", "ExitDoor", "ExitDoor1"]
+var allowedDoorsDown = ["Door", "Door1", "Door2", "RoofDoor", "RoofDoor1"]
 
 func _process(delta):
 	var actualPosition = self.get_pos()
@@ -30,12 +33,21 @@ func _process(delta):
 		for colider in actualColiders:
 			#print(colider.get_name())
 			#print (colider.get_z())
-			if colider.get_name() == "Wall" or colider.get_name() == "Wall1" or colider.get_name() == "Wall2" or  colider.get_name() == "Door":
+			if isAllowedWall(colider.get_name()):
 				directionFlag = !directionFlag
 				speed = speed * -1
 				
-			if colider.get_name() == "Door" and somsiadThink > 50:
-				self.set_pos(get_pos() + Vector2(0, -2400))
+			if isAllowedUp(colider.get_name()) and somsiadThink > 60:
+				self.set_pos(get_pos() + Vector2(0, -1800))
+			
+			if isAllowedDown(colider.get_name()) and somsiadThink < 60:
+				self.set_pos(get_pos() + Vector2(0, 1800))
+			
+			if colider.get_name() == "Player":
+				var player = colider
+				player.get_node("DieSound").play("Dead2")
+				get_tree().reload_current_scene()
+				
 		
 	if directionFlag:
 		animitedSprite.play("Left")
@@ -43,7 +55,22 @@ func _process(delta):
 		animitedSprite.play("Right")
 		
 	previousPosition = actualPosition
-	
+
+func isAllowedWall(colliderName):
+	for name in allowedWalls:
+		if name == colliderName:
+			return true
+
+func isAllowedDown(colliderName):
+	for name in allowedDoorsDown:
+		if name == colliderName:
+			return true
+			
+func isAllowedUp(colliderName):
+	for name in allowedDoorsUp:
+		if name == colliderName:
+			return true
+
 	
 func _ready():
 	set_process(true)

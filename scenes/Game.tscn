@@ -1,42 +1,97 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Hall.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Garage.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/world/exit.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Hall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Garage.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Exit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node"]
 
-[node name="Door" parent="." instance=ExtResource( 1 )]
+[node name="ExitDoor" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 846.735, 245.429 )
+transform/pos = Vector2( 557.219, 258.017 )
 transform/scale = Vector2( 0.852028, 0.73809 )
 
-[node name="Floor" parent="." instance=ExtResource( 2 )]
+[node name="Exit" type="Sprite" parent="ExitDoor"]
 
-transform/pos = Vector2( 373.794, 443.532 )
+transform/pos = Vector2( -168.301, -77.9808 )
+transform/scale = Vector2( 0.117367, 0.135485 )
+texture = ExtResource( 2 )
 
-[node name="Wall" parent="." instance=ExtResource( 3 )]
+[node name="ExitDoor1" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 335.056, 296.673 )
+transform/pos = Vector2( 1184.08, 250.314 )
+transform/scale = Vector2( 0.8, 0.7 )
 
-[node name="Hall" parent="." instance=ExtResource( 4 )]
+[node name="Exit" type="Sprite" parent="ExitDoor1"]
 
-transform/pos = Vector2( 362.951, -79.9107 )
+transform/pos = Vector2( 166.783, -85.0224 )
+transform/scale = Vector2( 0.117367, 0.135485 )
+texture = ExtResource( 2 )
 
-[node name="Garage" parent="." instance=ExtResource( 5 )]
+[node name="RoofDoor" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 1747.78, -734.688 )
+transform/pos = Vector2( 524.792, -587.38 )
+transform/scale = Vector2( 0.8, 0.7 )
 
-[node name="Somsiad" parent="." instance=ExtResource( 6 )]
+[node name="RoofDoor1" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 546.144, 177.806 )
+transform/pos = Vector2( 1181.89, -587.938 )
+transform/scale = Vector2( 0.8, 0.7 )
 
-[node name="Player" parent="." instance=ExtResource( 7 )]
+[node name="Floor" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 927.391, 161.167 )
+transform/pos = Vector2( 360, 445 )
+
+[node name="Floor1" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 865.175, 445 )
+
+[node name="Wall" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 323.479, 324.112 )
+transform/scale = Vector2( 1, 0.8 )
+
+[node name="Wall2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 331.137, -511.078 )
+transform/scale = Vector2( 1, 0.8 )
+
+[node name="Wall3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 578.399, -801.95 )
+transform/rot = 95.0
+transform/scale = Vector2( 1, -2.80258 )
+
+[node name="Wall1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 1409.22, 322.874 )
+transform/scale = Vector2( 1, 0.8 )
+
+[node name="Hall" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 365.741, 17.7222 )
+
+[node name="Garage" parent="." instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1747.78, -638.312 )
+
+[node name="Exit" parent="." instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 410.596, 904.022 )
+transform/scale = Vector2( 1.81484, 1.62603 )
+
+[node name="Somsiad" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 897.762, -131.247 )
+
+[node name="Player" parent="." instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 1044.55, 348.064 )
 
 

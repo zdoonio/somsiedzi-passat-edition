@@ -8,6 +8,9 @@ const JUMP_HEIGHT = -25000
 var motion = Vector2()
 var isPlanted = false
 
+var allowedDoorsUp = ["Door", "Door1", "Door2", "ExitDoor", "ExitDoor1"]
+var allowedDoorsDown = ["Door", "Door1", "Door2", "ExitDoor", "ExitDoor1", "RoofDoor", "RoofDoor1"]
+
 func _process(delta):
 	var area = get_node("PlayerArea")
 	var timer = get_node("Timer")
@@ -33,18 +36,25 @@ func _process(delta):
 
 		for colider in actualColiders:
 			#print(colider.get_name())
+			#print(colider.get_parent().get_parent().get_name())
+			#print(isPlanted)
 			
-			if Input.is_action_pressed("up") and colider.get_name() == "Door":
+			if Input.is_action_pressed("up") and isAllowedUp(colider.get_name()):
 				#timer.start()
 				#colider.get_node("AnimatedSprite").play("Open")
-				self.set_pos(get_pos() + Vector2(0, -600))
+				self.set_pos(get_pos() + Vector2(0, -450))
 				#colider.get_node("AnimatedSprite").play("Idle")
 				
-			elif Input.is_action_pressed("down") and colider.get_name() == "Door":
-				self.set_pos(get_pos() + Vector2(0, 600))
-				 
-			elif Input.is_action_pressed("up") and colider.get_name() == "Passat":
+			elif Input.is_action_pressed("down") and isAllowedDown(colider.get_name()):
+				self.set_pos(get_pos() + Vector2(0, 450))
+				
+			elif colider.get_parent().get_parent().get_name() == "Exit" and isPlanted:
+				get_tree().reload_current_scene()
+
+			elif (Input.is_action_pressed("up") or Input.is_action_pressed("down")) and colider.get_name() == "Passat":
 				print("Zaplantowano bombe")
+				isPlanted = true
+				colider.get_node("Bomb").play("Planted")
 				if soundRandomize == 1:
 					bombSound.play("Bomb0")
 				elif soundRandomize == 2:
@@ -52,14 +62,22 @@ func _process(delta):
 				elif soundRandomize == 3:
 					bombSound.play("Bomb2")
 					
-				colider.get_node("Bomb").play("Planted")
-				isPlanted = true
 				
 	
 	#if isPlanted:
 		#VisualServer.set_default_clear_color(Color(0.05 , 1, 0.05, 1))		
 
 	motion = move_and_slide(motion)
+	
+func isAllowedDown(colliderName):
+	for name in allowedDoorsDown:
+		if name == colliderName:
+			return true
+			
+func isAllowedUp(colliderName):
+	for name in allowedDoorsUp:
+		if name == colliderName:
+			return true
 
 func _ready():
 	var soundRandomize = randi()% 3 + 1
