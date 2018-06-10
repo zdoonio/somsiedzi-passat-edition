@@ -95,4 +95,6 @@ config/pitch_random = 0.0
 
 [connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
 
+[connection signal="pressed" from="IntroButton" to="." method="_on_IntroButton_pressed"]
+
 

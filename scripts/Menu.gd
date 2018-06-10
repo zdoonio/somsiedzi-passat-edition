@@ -11,3 +11,9 @@ func _on_NewGameButton_pressed():
 	var path = SCENE_PATH + "Game.tscn"
 	get_tree().change_scene(path)
 	pass # replace with function body
+
+
+func _on_IntroButton_pressed():
+	var path = SCENE_PATH + "Intro.tscn"
+	get_tree().change_scene(path)
+	pass # replace with function body

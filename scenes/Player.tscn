@@ -3,12 +3,12 @@
 [ext_resource path="res://scripts/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/idle.png" type="Texture" id=2]
 [ext_resource path="res://assets/player/idle2.png" type="Texture" id=3]
-[ext_resource path="res://assets/player/Janusz_right0.png" type="Texture" id=4]
-[ext_resource path="res://assets/player/Janusz_right1.png" type="Texture" id=5]
-[ext_resource path="res://assets/player/Janusz_right2.png" type="Texture" id=6]
-[ext_resource path="res://assets/player/Janusz_left0.png" type="Texture" id=7]
-[ext_resource path="res://assets/player/Janusz_left1.png" type="Texture" id=8]
-[ext_resource path="res://assets/player/Janusz_left2.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/Janusz_left0.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/Janusz_left1.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/Janusz_left2.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/Janusz_right0.png" type="Texture" id=7]
+[ext_resource path="res://assets/player/Janusz_right1.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/Janusz_right2.png" type="Texture" id=9]
 [ext_resource path="res://scripts/PlayerAnimationController.gd" type="Script" id=10]
 [ext_resource path="res://audio/Victory0.wav" type="Sample" id=11]
 [ext_resource path="res://audio/Victory1.wav" type="Sample" id=12]
@@ -35,12 +35,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "Run_Right",
+"name": "Run_Left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "Run_Left",
+"name": "Run_Right",
 "speed": 5.0
 } ]
 
@@ -165,10 +165,10 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
-[node name="Timer" type="Timer" parent="Player"]
+[node name="DieTimer" type="Timer" parent="Player"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 0.15
 one_shot = false
 autostart = false
 
@@ -204,5 +204,7 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 1
 config/samples = SubResource( 5 )
 config/pitch_random = 0.0
+
+[connection signal="timeout" from="Player/DieTimer" to="Player" method="_on_DieTimer_timeout"]
 
 

@@ -1,15 +1,15 @@
 extends KinematicBody2D
 
 const GRAVITY = 0.1
-const JUMP_HEIGHT = -25
+const JUMP_HEIGHT = -200
 
 var somsiadThink
-var speed = 12500
+var speed = 30000
 var previousPosition = Vector2()
 var motion = Vector2()
 var directionFlag = true
-var allowedWalls = ["Wall", "Wall1", "Wall2", "Door", "Door1", "Door2", "ExitDoor", "ExitDoor1"]
-var allowedDoorsUp = ["Door", "Door1", "Door2", "ExitDoor", "ExitDoor1"]
+var allowedWalls = ["Wall", "Wall1", "Wall2", "Door", "Door1", "Door2", "ExitDoor", "ExitDoor1", "RoofDoor", "RoofDoor1", "ExitDoorExit"]
+var allowedDoorsUp = ["Door", "Door1", "Door2", "ExitDoor", "ExitDoor1", "ExitDoorExit", "ExitDoorExit1"]
 var allowedDoorsDown = ["Door", "Door1", "Door2", "RoofDoor", "RoofDoor1"]
 
 func _process(delta):
@@ -45,8 +45,7 @@ func _process(delta):
 			
 			if colider.get_name() == "Player":
 				var player = colider
-				player.get_node("DieSound").play("Dead2")
-				get_tree().reload_current_scene()
+				player.die()
 				
 		
 	if directionFlag:

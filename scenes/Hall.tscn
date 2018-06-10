@@ -1,59 +1,85 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
-[ext_resource path="res://assets/world/obrazek.png" type="Texture" id=1]
-[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/WallOpen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/world/wood.png" type="Texture" id=1]
+[ext_resource path="res://assets/world/obrazek.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Floor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/WallOpen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/world/up.png" type="Texture" id=7]
 
 [node name="Hall" type="Node2D"]
+
+[node name="wood" type="Sprite" parent="."]
+
+transform/pos = Vector2( 722.296, -216.337 )
+transform/scale = Vector2( 1.25855, 0.855377 )
+texture = ExtResource( 1 )
+
+[node name="wood1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 260.715, -207.968 )
+transform/scale = Vector2( 1.25855, 0.855377 )
+texture = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
 transform/pos = Vector2( 381.402, -225.56 )
 transform/scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
-[node name="Floor" parent="." instance=ExtResource( 2 )]
+[node name="Floor" parent="." instance=ExtResource( 3 )]
 
-[node name="Floor2" parent="." instance=ExtResource( 2 )]
+[node name="Floor2" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 500, 0 )
 
-[node name="Floor1" parent="." instance=ExtResource( 2 )]
+[node name="Floor1" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( -0.334015, -408 )
 
-[node name="Floor3" parent="." instance=ExtResource( 2 )]
+[node name="Floor3" parent="." instance=ExtResource( 3 )]
 
 transform/pos = Vector2( 499.82, -408 )
 
-[node name="Wall" parent="." instance=ExtResource( 3 )]
+[node name="Wall" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( -37.0124, -119.837 )
 transform/scale = Vector2( 1, 0.8 )
 z/z = 1
 
-[node name="Wall1" parent="." instance=ExtResource( 3 )]
+[node name="Wall1" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 1038, -116.999 )
 transform/scale = Vector2( 1, 0.8 )
 z/z = 1
 
-[node name="Wall2" parent="." instance=ExtResource( 4 )]
+[node name="Wall2" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 533.614, -292.837 )
 transform/scale = Vector2( 1, 0.313591 )
 z/z = 1
 
-[node name="Door" parent="." instance=ExtResource( 5 )]
+[node name="ExitDoorExit1" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 837.575, -171.561 )
 transform/scale = Vector2( 0.75, 0.6 )
 
-[node name="Door1" parent="." instance=ExtResource( 5 )]
+[node name="up1" type="Sprite" parent="ExitDoorExit1"]
+
+transform/pos = Vector2( -917.221, -275.323 )
+transform/scale = Vector2( 0.3, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="ExitDoorExit" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 152.846, -171.561 )
 transform/scale = Vector2( 0.75, 0.6 )
+
+[node name="up" type="Sprite" parent="ExitDoorExit"]
+
+transform/pos = Vector2( 907.61, -282.897 )
+transform/scale = Vector2( 0.3, 0.4 )
+texture = ExtResource( 7 )
 
 

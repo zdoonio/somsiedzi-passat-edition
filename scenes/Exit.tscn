@@ -8,15 +8,15 @@
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 248.296, -151.496 )
-transform/scale = Vector2( 0.520486, 0.355666 )
+transform/pos = Vector2( 251.259, -152.167 )
+transform/scale = Vector2( 0.530825, 0.367827 )
 texture = ExtResource( 1 )
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 
 [node name="Wall" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( -32.728, -8.30017 )
+transform/pos = Vector2( -29.0448, -13.2111 )
 transform/scale = Vector2( 1, 0.74062 )
 
 [node name="Wall1" parent="." instance=ExtResource( 3 )]
